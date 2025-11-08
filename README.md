@@ -97,11 +97,11 @@ Este comando irá:
 
 ## 🧪 Testes
 
-Para executar os testes do backend:
+Para executar os testes do backend, executar comando dentro do container:
 
 ```bash
-cd backend
-npm test
+- **docker exec -it NOME_OU_ID_DO_CONTAINER /bin/bash
+- **npm test
 ```
 
 ## 📖 Documentação da API
