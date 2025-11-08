@@ -1,7 +1,7 @@
 const express = require('express');
 const taskController = require('../controllers/taskController');
 const auth = require('../middleware/auth');
-const { validateTask } = require('../middleware/validation');
+const { validateTask, validateTaskUpdate } = require('../middleware/validation');
 
 const router = express.Router();
 
@@ -89,7 +89,7 @@ router.post('/', auth, validateTask, taskController.createTask);
  *       200:
  *         description: Tarefa atualizada com sucesso
  */
-router.put('/:id', auth, validateTask, taskController.updateTask);
+router.put('/:id', auth, validateTaskUpdate, taskController.updateTask);
 
 /**
  * @swagger

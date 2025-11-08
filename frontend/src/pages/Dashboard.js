@@ -38,7 +38,7 @@ const Dashboard = () => {
   };
 
   const handleToggleTask = (task) => {
-    updateTask.mutate({ id: task.id, ...task, completed: !task.completed });
+    updateTask.mutate({ id: task.id, completed: !task.completed });
   };
 
   const handleDeleteTask = (taskId) => {

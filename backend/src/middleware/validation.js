@@ -41,4 +41,18 @@ const validateTask = (req, res, next) => {
   next();
 };
 
-module.exports = { validateRegister, validateLogin, validateTask };
+const validateTaskUpdate = (req, res, next) => {
+  const schema = Joi.object({
+    title: Joi.string().min(1),
+    description: Joi.string().allow(''),
+    completed: Joi.boolean(),
+  }).min(1);
+
+  const { error } = schema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
+  }
+  next();
+};
+
+module.exports = { validateRegister, validateLogin, validateTask, validateTaskUpdate };
