@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -10,8 +10,18 @@ import {
 } from '@mui/material';
 
 const TaskForm = ({ open, onClose, onSubmit, task = null }) => {
-  const [title, setTitle] = useState(task?.title || '');
-  const [description, setDescription] = useState(task?.description || '');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  useEffect(() => {
+    if (task) {
+      setTitle(task.title || '');
+      setDescription(task.description || '');
+    } else {
+      setTitle('');
+      setDescription('');
+    }
+  }, [task]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
