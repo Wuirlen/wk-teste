@@ -7,9 +7,10 @@ import {
   TextField,
   Button,
   Box,
+  CircularProgress,
 } from '@mui/material';
 
-const TaskForm = ({ open, onClose, onSubmit, task = null }) => {
+const TaskForm = ({ open, onClose, onSubmit, task = null, loading = false }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -57,9 +58,13 @@ const TaskForm = ({ open, onClose, onSubmit, task = null }) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose}>Cancelar</Button>
-          <Button type="submit" variant="contained">
-            {task ? 'Atualizar' : 'Criar'}
+          <Button onClick={onClose} disabled={loading}>Cancelar</Button>
+          <Button type="submit" variant="contained" disabled={loading}>
+            {loading ? (
+              <CircularProgress size={20} />
+            ) : (
+              task ? 'Atualizar' : 'Criar'
+            )}
           </Button>
         </DialogActions>
       </form>
