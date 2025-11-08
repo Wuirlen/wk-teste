@@ -100,8 +100,8 @@ Este comando irá:
 Para executar os testes do backend, executar comando dentro do container:
 
 ```bash
-- **docker exec -it NOME_OU_ID_DO_CONTAINER /bin/bash
-- **npm test
+- docker exec -it NOME_OU_ID_DO_CONTAINER /bin/bash
+- npm test
 ```
 
 ## 📖 Documentação da API
