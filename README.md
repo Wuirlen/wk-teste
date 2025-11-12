@@ -5,15 +5,15 @@ Uma aplicação completa de gerenciamento de tarefas com autenticação, desenvo
 ## 🚀 Funcionalidades
 
 ### Backend
-- ✅ API RESTful com Node.js e Express
+- ✅ API RESTful com Node.js e NestJS
 - ✅ Autenticação JWT
 - ✅ CRUD completo de tarefas
 - ✅ Paginação
 - ✅ Filtros por status
-- ✅ Validação com Joi
+- ✅ Validação com class-validator
 - ✅ Documentação Swagger
 - ✅ Testes unitários
-- ✅ PostgreSQL com Sequelize ORM
+- ✅ PostgreSQL com TypeORM
 
 ### Frontend
 - ✅ Interface responsiva com Material-UI
@@ -26,17 +26,17 @@ Uma aplicação completa de gerenciamento de tarefas com autenticação, desenvo
 ## 🛠️ Tecnologias
 
 ### Backend
-- Node.js
-- Express.js
+- Node.js 25
+- NestJS
 - PostgreSQL
-- Sequelize ORM
+- TypeORM
 - JWT
-- Joi (validação)
+- class-validator (validação)
 - Swagger (documentação)
 - Jest (testes)
 
 ### Frontend
-- React 18
+- React 18 com Vite (Node.js 25)
 - Material-UI
 - React Query
 - React Router
@@ -113,14 +113,13 @@ Acesse http://localhost:3001/api-docs para ver a documentação completa da API 
 ```
 ├── backend/
 │   ├── src/
-│   │   ├── config/          # Configurações
-│   │   ├── controllers/     # Controladores
-│   │   ├── middleware/      # Middlewares
-│   │   ├── models/          # Modelos do banco
-│   │   ├── routes/          # Rotas
-│   │   ├── services/        # Lógica de negócio
-│   │   └── server.js        # Servidor principal
-│   ├── tests/               # Testes unitários
+│   │   ├── auth/            # Módulo de autenticação
+│   │   ├── tasks/           # Módulo de tarefas
+│   │   ├── users/           # Entidades de usuário
+│   │   ├── database/        # Configuração do banco
+│   │   ├── app.module.ts    # Módulo principal
+│   │   └── main.ts          # Servidor principal
+│   ├── test/                # Testes unitários
 │   └── Dockerfile
 ├── frontend/
 │   ├── src/
@@ -138,7 +137,7 @@ Acesse http://localhost:3001/api-docs para ver a documentação completa da API 
 
 - Senhas criptografadas com bcrypt
 - Autenticação JWT
-- Validação de entrada com Joi
+- Validação de entrada com class-validator
 - Proteção de rotas no frontend
 - CORS configurado
 

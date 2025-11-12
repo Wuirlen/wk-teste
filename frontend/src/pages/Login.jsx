@@ -31,7 +31,7 @@ const Login = () => {
       login(response.data.user, response.data.token);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Erro ao fazer login');
+      setError(err.response?.data?.message || 'Erro ao fazer login');
     } finally {
       setLoading(false);
     }

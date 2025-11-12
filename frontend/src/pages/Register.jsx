@@ -32,7 +32,7 @@ const Register = () => {
       login(response.data.user, response.data.token);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Erro ao criar conta');
+      setError(err.response?.data?.message || 'Erro ao criar conta');
     } finally {
       setLoading(false);
     }
